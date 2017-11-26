@@ -5,15 +5,16 @@ public class SubwayIncorrect {
     private String bread;
     private String toast;
     private String cheese;
-    private String condiments;
+    private boolean onion;
+    private boolean tomato;
 
     private SubwayIncorrect(Builder builder) {
-        this.bread = bread;
-        this.toast = toast;
-        this.cheese = cheese;
-        this.condiments = condiments;
+        this.bread = builder.bread;
+        this.toast = builder.toast;
+        this.cheese = builder.cheese;
+        this.onion = builder.onion;
+        this.tomato = builder.tomato;
     }
-
 
     public String getBread() {
         return bread;
@@ -27,8 +28,12 @@ public class SubwayIncorrect {
         return cheese;
     }
 
-    public String getCondiments() {
-        return condiments;
+    public boolean isOnion() {
+        return onion;
+    }
+
+    public boolean isTomato() {
+        return tomato;
     }
 
     static Builder builder() {
@@ -41,13 +46,15 @@ public class SubwayIncorrect {
         private String bread;
         private String toast;
         private String cheese;
-        private String condiments;
+        private boolean onion;
+        private boolean tomato;
 
         Builder() {
             this.bread = null;
             this.toast = null;
             this.cheese = null;
-            this.condiments = null;
+            this.onion = false;
+            this.tomato = false;
         }
 
         public Builder bread(String bread) {
@@ -65,10 +72,16 @@ public class SubwayIncorrect {
             return this;
         }
 
-        public Builder condiments(String condiments) {
-            this.condiments = condiments;
+        public Builder onion() {
+            this.onion = true;
             return this;
         }
+
+        public Builder tomato() {
+            this.tomato = true;
+            return this;
+        }
+
 
         public SubwayIncorrect build() {
             return new SubwayIncorrect(this);
