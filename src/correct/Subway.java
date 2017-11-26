@@ -18,7 +18,7 @@ public class Subway {
 
 
     //Constructor
-    Subway(Builder builder) {
+    private Subway(Builder builder) {
         this.bread = builder.bread;
         this.toast = builder.toast;
         this.veg = builder.veg;

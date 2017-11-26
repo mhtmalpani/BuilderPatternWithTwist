@@ -7,7 +7,7 @@ public class SubwayIncorrect {
     private String cheese;
     private String condiments;
 
-    SubwayIncorrect(Builder builder) {
+    private SubwayIncorrect(Builder builder) {
         this.bread = bread;
         this.toast = toast;
         this.cheese = cheese;
