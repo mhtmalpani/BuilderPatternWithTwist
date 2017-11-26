@@ -17,7 +17,7 @@ public class Subway {
     private String cheese;
 
 
-    //Constructor
+    //Private constructor to avoid direct instantiation of the Subway class
     private Subway(Builder builder) {
         this.bread = builder.bread;
         this.toast = builder.toast;
@@ -32,15 +32,17 @@ public class Subway {
     }
 
 
-    //Returns the first mandatory field: Bread
+    //Returns the first mandatory attribute: Bread
     static Bread builder() {
         return new Builder();
     }
 
 
     //Builder class
+    //This implements all the Helper functions and defines in the same way as simple Builder pattern
     public static class Builder implements Bread, Toast, Type, Veg, NonVeg, Extra {
 
+        //Member variables
         private String bread;
         private boolean toast;
         private boolean veg;
@@ -52,6 +54,7 @@ public class Subway {
         private boolean mutton;
         private String cheese;
 
+        //Constructor that sets default values to all attributes.
         Builder() {
             this.bread = null;
             this.toast = false;
@@ -100,6 +103,7 @@ public class Subway {
             return this;
         }
 
+        //This is a simple function to break out of the Vegetables category.
         public Extra prepare() {
             return this;
         }
