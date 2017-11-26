@@ -8,6 +8,7 @@ public class SubwayImprovised {
     private boolean onion;
     private boolean tomato;
 
+    //Private constructor to avoid direct instantiation of the Subway class
     private SubwayImprovised(Builder builder) {
         this.bread = builder.bread;
         this.toast = builder.toast;
@@ -16,6 +17,8 @@ public class SubwayImprovised {
         this.tomato = builder.tomato;
     }
 
+
+    //Getter methods
     public String getBread() {
         return bread;
     }
@@ -36,11 +39,15 @@ public class SubwayImprovised {
         return tomato;
     }
 
+
+    //Function to obtain the builder object
     static Builder builder(String bread, String toast) {
         return new Builder(bread, toast);
     }
 
 
+    //Our actual Builder class
+    //This is a nested class
     public static class Builder {
 
         private String bread;
@@ -49,6 +56,8 @@ public class SubwayImprovised {
         private boolean onion;
         private boolean tomato;
 
+        //Public constructor with two mandatory attributes
+        //The rest of the attributes are assigned to default values
         Builder(String bread, String toast) {
             this.bread = bread;
             this.toast = toast;
@@ -57,16 +66,8 @@ public class SubwayImprovised {
             this.tomato = false;
         }
 
-        public Builder bread(String bread) {
-            this.bread = bread;
-            return this;
-        }
-
-        public Builder toast(String toast) {
-            this.toast = toast;
-            return this;
-        }
-
+        //Each method assigns the value to the attribute associated
+        //And returns the instance of the same object
         public Builder cheese(String cheese) {
             this.cheese = cheese;
             return this;
@@ -83,6 +84,8 @@ public class SubwayImprovised {
         }
 
 
+        //The build function to create our final Subway object
+        //This is to be called when all the attributes we need in the object has been called by client
         public SubwayImprovised build() {
             return new SubwayImprovised(this);
         }
